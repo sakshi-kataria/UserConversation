@@ -1,0 +1,46 @@
+<template name="userChat">
+    <div class="container clearfix">
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">User Conversation </h1>
+            </div>
+        </div>
+        <div class="chat">
+            <div class="chat-history">
+                <ul class="chat-ul">
+                    {{#each users}}
+                        {{#each conversation}}
+                             {{#if Reciever}}
+                                    <li>
+                                            <div class="message-data">
+                                                <span class="message-data-name">
+                                                    <i class="fa fa-circle me"></i>
+                                                    {{RecieverName}}
+                                                </span>
+                                            </div>
+                                            <div class="message you-message">
+                                                {{Message}}
+                                            </div>
+                                    </li>
+                             {{else}}
+                                    <li class="clearfix">
+                                         <div class="message-data align-right">
+                                            <span class="message-data-name">
+                                                you
+                                            </span>
+                                            <i class="fa fa-circle you"></i>
+                                        </div>
+                                        <div class="message me-message float-right">
+                                            {{Message}}
+                                        </div>
+                                </li>
+
+                             {{/if}}
+                        {{/each}}
+                    {{/each}}
+                </ul>
+            </div> <!-- end chat-history -->
+        </div> <!-- end chat -->
+
+    </div>
+</template>

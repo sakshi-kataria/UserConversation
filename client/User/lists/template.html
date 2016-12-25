@@ -4,9 +4,9 @@
 
         <!-- Page Heading -->
         <div class="row">
+              {{> signOut}}
             <div class="col-lg-12">
-                <h1 class="page-header">User List
-                </h1>
+                <h1 class="page-header">User lists</h1>
             </div>
         </div>
         <!-- /.row -->
@@ -16,10 +16,11 @@
           {{#each users}}
 
               <div class="col-md-3 portfolio-item">
+                  <h3>{{username}}</h3>
                   {{#each emails}}
-                  <h3>{{address}}</h3>
+                  <small>{{address}}</small>
                     {{/each}}
-                  <button type="button" class="btn btn-link" msgID={{_id}}>Show Conversation</button>
+                  <button type="button" class="btn btn-link Conversation" msgID={{_id}}>Show Conversation</button>
                   <button type="button" class="btn btn-info mail-btn"
                   dataid={{_id}} data-toggle="modal" data-target="#myModal">Send Message</button>
 
@@ -34,7 +35,7 @@
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Suventure 2014</p>
+                    <p>Copyright &copy; Suventure 2016</p>
                 </div>
             </div>
             <!-- /.row -->
@@ -47,8 +48,8 @@
 
     <!-- Modal -->
     <div id="myModal" class="modal fade" role="dialog">
+        <form id="smsForm">
       <div class="modal-dialog">
-
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
@@ -57,16 +58,16 @@
           </div>
           <div class="modal-body">
             <div class="form-group">
-              <textarea class="form-control" rows="5" id="txtMessage"></textarea>
+              <textarea class="form-control required" rows="5" id="txtMessage"></textarea>
             </div>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-info" id="sendMsg" >Send</button>
+            <button type="submit" class="btn btn-info" id="sendMsg">Send</button>
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div>
-
       </div>
+      </form>
     </div>
 
 </Template>

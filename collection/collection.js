@@ -1,4 +1,3 @@
-
 userConversation=new Mongo.Collection("userChat");
 userConversation.allow({
     insert() {

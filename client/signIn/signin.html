@@ -1,28 +1,39 @@
-<template name="signin">
-  <form name="myForm">
-    <div class="container">
-      <div class="row">
-          <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
-          	<form role="form">
-      			<h2>Welcome to <small>Sign in</small></h2>
-      			<hr class="colorgraph">
-      			<div class="form-group">
-      				<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4" required>
-      			</div>
-      			<div class="row">
-      				<div class="col-xs-12 col-sm-6 col-md-6">
-      					<div class="form-group">
-      						<input type="password"  name="password" id="password" class="form-control input-lg" placeholder="Password" tabindex="5" required>
-      					</div>
-      				</div>
-      			</div>
-      			<hr class="colorgraph">
-      			<div class="row">
-      				<div class="col-xs-12 col-md-6"><a href="#" class="btn btn-success btn-block btn-lg" id="signin" >Sign In</a></div>
-      			</div>
-      		</form>
-      	</div>
+  <template name="signin">
+    <form id="myForm">
+      <div class="container">
+        <div class="row">
+            <div class="col-xs-12 col-sm-8 col-md-6 col-sm-offset-2 col-md-offset-3">
+        			<h2>Sign in</h2>
+        			<hr class="colorgraph">
+        			<div class="form-group">
+        				<input type="email" name="email" id="email" class="form-control input-lg required email"
+                 placeholder="Email Address" tabindex="4" maxlength="50">
+        			</div>
+        			<div class="row">
+        				<div class="col-xs-12 col-sm-6 col-md-6">
+        					<div class="form-group">
+        						<input type="password"  name="password" id="password" class="form-control input-lg required"
+                    placeholder="Password" tabindex="5" maxlength="10">
+        					</div>
+        				</div>
+        			</div>
+        			<hr class="colorgraph">
+        			<div class="row">
+        				<div class="col-xs-12 col-md-6">
+                  <button class="btn btn-success btn-block btn-lg" id="signin" type="submit">Sign In</button></div>
+                <button type="button" class="btn btn-link" id="gotoRegister"><b>Click here to Registration</b></button>
+        			</div>
+              <div class="row">
+                {{#if errorMessage}}
+                          <div class="ui error message">{{errorMessage}}</div>
+                {{/if}}
+              </div>
+        	</div>
+        </div>
       </div>
-    </div>
-</form>
-</template>
+  </form>
+  </template>
+
+  <template name="signOut">
+    <button type="button" class="btn btn-link logOut" id="menu-logout"><b>Logout</b></button>
+  </template>

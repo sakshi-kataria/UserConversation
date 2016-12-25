@@ -5,6 +5,7 @@ Template.userChat.helpers({
         if(this[0].reciever_id){
             user=Meteor.users.find({_id:this[0].reciever_id}).fetch();
         }
+        //Only show conversation of current user and selected user's
         return  userConversation.find({}).map(function(u) {
              u.conversation.forEach(function (data) {
                  let isReciever=data.senderId!==Meteor.userId();

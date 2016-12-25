@@ -3,6 +3,7 @@ import { Meteor } from 'meteor/meteor';
 
 if (Meteor.isServer) {
   Meteor.methods({
+    //metehod to create new user from registration page
     createNewUser: function (userDoc) {
       try {
         let user = Meteor.users.find({'emails.address': userDoc.email});
@@ -13,6 +14,7 @@ if (Meteor.isServer) {
         throw new Meteor.Error(error);
       }
     },
+      //metehod to send message from current user to selected user
     sendMessage: function (user1,user2,userCo) {
       try {
         let user=userConversation.find({ $and: [ { $or: [ { "user1": user1 },
@@ -34,3 +36,10 @@ if (Meteor.isServer) {
       }
   });
 }
+
+Meteor.startup(function () {
+  userConversation._ensureIndex({ "conversation.recieverId": 1});
+  userConversation._ensureIndex({ "conversation.senderId": 1});
+  userConversation._ensureIndex({ "user1": 1});
+  userConversation._ensureIndex({ "user2": 1});
+});

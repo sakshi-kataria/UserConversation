@@ -20,7 +20,8 @@ Template.signin.helpers({
             }else{
             Meteor.loginWithPassword(emailVal, passwordVal, function (error) {
                   if (error) {
-                    console.log('error ',error);
+                    Session.set('lastError',error.reason);
+                    console.log('error ',error.reason);
                   } else {
                       Router.go("getUserList");
                   }

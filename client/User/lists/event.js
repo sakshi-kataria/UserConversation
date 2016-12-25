@@ -1,5 +1,6 @@
 Template.userList.events({
     'click .mail-btn': function(event) {
+      //set session of reciever to send message
       if($(event.currentTarget))
         Session.set('Reciever_id',$(event.currentTarget)[0].attributes.dataid.value)
      },
@@ -32,6 +33,7 @@ Template.userList.events({
       }
     },
     'click .Conversation': function() {
+      //send reciever id from router to show conversation with current user
       if($(event.target))
         Router.go('userChat', {reciever_id:$(event.target)[0].attributes.msgID.value});
     }
